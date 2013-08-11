@@ -1,10 +1,12 @@
 
 request       = require 'request'
 {parseString} = require 'xml2js'
+pkg           = require '../package.json'
 
 
 class Iciba
   constructor: (@key) ->
+    @version = pkg.version
 
 Iciba::get = (word, fn) ->
   url = "http://dict-co.iciba.com/api/dictionary.php?w=#{word}&key=#{@key}"
