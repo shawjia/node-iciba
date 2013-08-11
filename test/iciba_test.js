@@ -1,6 +1,10 @@
 'use strict';
 
-var iciba = require('../lib/iciba.js');
+var
+  Iciba  = require('../lib/iciba.js'),
+  APIKEY = 'C231706B1BCAAE8D3CEB0E70B5AF138A',
+  iciba  = new Iciba(APIKEY);
+
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -28,9 +32,11 @@ exports['awesome'] = {
     done();
   },
   'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(iciba.awesome(), 'awesome', 'should be awesome.');
-    test.done();
+    test.expect(2);
+    iciba.get('apple', function(err, res){
+      test.equal(err, null, 'should be no error');
+      test.notEqual(res, null, 'should return sth.');
+      test.done();
+    });
   },
 };

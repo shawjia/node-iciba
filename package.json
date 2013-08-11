@@ -33,5 +33,9 @@
     "grunt-contrib-watch": "~0.4.0",
     "grunt": "~0.4.1"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "request": "~2.26.0",
+    "xml2js": "~0.2.8"
+  }
 }
