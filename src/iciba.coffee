@@ -25,19 +25,19 @@ Iciba::get = (word, fn) ->
         translations: []
 
       # spells
-      for spell, index in dict.ps
+      for spell, index in (dict?.ps or [])
         result.spells.push
           text: "[#{spell}]"
           mp3: dict.pron[index]
 
       # examples
-      for example in dict.sent
+      for example in (dict?.sent or [])
         result.examples.push
           en: example.orig[0].trim()
           cn: example.trans[0].trim()
 
       # translations
-      for type, index in dict.pos
+      for type, index in (dict?.pos or [])
         result.translations.push
           type: type
           desc: dict.acceptation[index].trim()
